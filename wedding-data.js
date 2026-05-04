@@ -28,11 +28,11 @@ window.WEDDING_DATA = {
                 // note: "Phiên bản thiệp mời dành cho phía nhà trai. Khi deploy riêng, hãy dùng link nha-trai.html hoặc ?profile=groom.",
             },
             media: {
-                coverImage: "./assets/images/highlights/slide-01.jpg",
+                coverImage: "./assets/images/highlights/slide-01.webp",
                 coverPosition: "35% 20%",
-                heroImage: "./assets/images/highlights/slide-01.jpg",
+                heroImage: "./assets/images/highlights/slide-01.webp",
                 heroPosition: "35% 20%",
-                footerImage: "./assets/images/highlights/slide-05.jpg",
+                footerImage: "./assets/images/highlights/slide-05.webp",
             },
             wedding: {
                 solarDateLong: "Thứ Hai, 01 tháng 06 năm 2026",
@@ -73,11 +73,11 @@ window.WEDDING_DATA = {
                 note: "Phiên bản thiệp mời dành cho phía nhà gái. Khi có giờ cử hành chính xác bên nhà gái, chỉ cần cập nhật trong profile bride.",
             },
             media: {
-                coverImage: "./assets/images/profiles/bride-profile.jpg",
+                coverImage: "./assets/images/profiles/bride-profile.webp",
                 coverPosition: "42% 58%",
-                heroImage: "./assets/images/profiles/bride-profile.jpg",
+                heroImage: "./assets/images/profiles/bride-profile.webp",
                 heroPosition: "42% 58%",
-                footerImage: "./assets/images/highlights/slide-06.jpg",
+                footerImage: "./assets/images/highlights/slide-06.webp",
             },
             wedding: {
                 solarDateLong: "Thông tin lễ bên nhà gái",
@@ -143,14 +143,14 @@ window.WEDDING_DATA = {
             "Xuân Dương & Bích Nga • 01.06.2026 • Hân hạnh được đón tiếp",
     },
     media: {
-        coverImage: "./assets/images/highlights/slide-01.jpg",
+        coverImage: "./assets/images/highlights/slide-01.webp",
         coverPosition: "50% 84%",
-        heroImage: "./assets/images/highlights/slide-02.jpg",
+        heroImage: "./assets/images/highlights/slide-02.webp",
         heroPosition: "50% 82%",
-        footerImage: "./assets/images/highlights/slide-05.jpg",
+        footerImage: "./assets/images/highlights/slide-05.webp",
         musicSrc: "./assets/music/background-music.mp3",
         videoSrc: "./assets/video/wedding-highlight.mp4",
-        videoPoster: "./assets/images/highlights/slide-03.jpg",
+        videoPoster: "./assets/images/highlights/slide-03.webp",
         videoEmbedUrl: "",
         videoPlaceholderTitle: "Thêm video highlight của bạn tại đây",
         videoPlaceholderNote:
@@ -167,7 +167,7 @@ window.WEDDING_DATA = {
             mother: "",
             address: "Thôn 5 - Xã Ea Ô - Tỉnh Đắk Lắk",
             quote: "",
-            image: "./assets/images/profiles/groom-profile.jpg",
+            image: "./assets/images/profiles/groom-profile.webp",
             imageAlt: "Thông tin chú rể",
             imagePosition: "35% 18%",
             gift: {
@@ -192,7 +192,7 @@ window.WEDDING_DATA = {
             mother: "",
             address: "Thôn Quảng Cư 2 - Xã Ea Kar - Tỉnh Đắk Lắk",
             quote: "",
-            image: "./assets/images/profiles/bride-profile.jpg",
+            image: "./assets/images/profiles/bride-profile.webp",
             imageAlt: "Thông tin cô dâu",
             imagePosition: "42% 58%",
             gift: {
@@ -214,7 +214,7 @@ window.WEDDING_DATA = {
             title: "Bộ ảnh mới",
             description:
                 "Website hiện đã chuyển sang dùng toàn bộ ảnh thật từ bộ ảnh bạn cung cấp, không còn dùng ảnh mẫu cũ.",
-            image: "./assets/images/highlights/slide-01.jpg",
+            image: "./assets/images/highlights/slide-01.webp",
             imageAlt: "Khoảnh khắc nổi bật 1",
         },
         {
@@ -222,7 +222,7 @@ window.WEDDING_DATA = {
             title: "Ngoại cảnh chính",
             description:
                 "Những khung hình nổi bật nhất được đưa lên slider tự động để khách mời xem nhanh ngay trên đầu section ảnh.",
-            image: "./assets/images/highlights/slide-02.jpg",
+            image: "./assets/images/highlights/slide-02.webp",
             imageAlt: "Khoảnh khắc nổi bật 2",
         },
         {
@@ -230,7 +230,7 @@ window.WEDDING_DATA = {
             title: "Layout thiết kế",
             description:
                 "Nhóm ảnh dàn trang và thiết kế sẵn cũng được giữ nguyên thành một album riêng theo đúng thư mục nguồn.",
-            image: "./assets/images/highlights/slide-03.jpg",
+            image: "./assets/images/highlights/slide-03.webp",
             imageAlt: "Khoảnh khắc nổi bật 3",
         },
         {
@@ -238,7 +238,7 @@ window.WEDDING_DATA = {
             title: "Ảnh cá nhân hóa",
             description:
                 "Mỗi phiên bản thiệp mời đang dùng ảnh profile riêng để phù hợp với link nhà trai và nhà gái.",
-            image: "./assets/images/highlights/slide-04.jpg",
+            image: "./assets/images/highlights/slide-04.webp",
             imageAlt: "Khoảnh khắc nổi bật 4",
         },
     ],
@@ -285,32 +285,32 @@ window.WEDDING_DATA = {
     gallery: {
         highlights: [
             {
-                src: "./assets/images/highlights/slide-01.jpg",
+                src: "./assets/images/highlights/slide-01.webp",
                 alt: "Highlight 1",
                 position: "50% 88%",
             },
             {
-                src: "./assets/images/highlights/slide-02.jpg",
+                src: "./assets/images/highlights/slide-02.webp",
                 alt: "Highlight 2",
                 position: "54% 86%",
             },
             {
-                src: "./assets/images/highlights/slide-03.jpg",
+                src: "./assets/images/highlights/slide-03.webp",
                 alt: "Highlight 3",
                 position: "55% 78%",
             },
             {
-                src: "./assets/images/highlights/slide-04.jpg",
+                src: "./assets/images/highlights/slide-04.webp",
                 alt: "Highlight 4",
                 position: "50% 82%",
             },
             {
-                src: "./assets/images/highlights/slide-05.jpg",
+                src: "./assets/images/highlights/slide-05.webp",
                 alt: "Highlight 5",
                 position: "50% 68%",
             },
             {
-                src: "./assets/images/highlights/slide-06.jpg",
+                src: "./assets/images/highlights/slide-06.webp",
                 alt: "Highlight 6",
                 position: "50% 42%",
             },
@@ -323,7 +323,7 @@ window.WEDDING_DATA = {
                     "Bộ ảnh ngoại cảnh đầy đủ, hiển thị toàn bộ để khách mời có thể xem trọn album.",
                 prefix: "./assets/images/albums/blend/blend-",
                 count: 31,
-                ext: ".jpg",
+                ext: ".webp",
             },
             {
                 key: "aqua",
@@ -332,7 +332,7 @@ window.WEDDING_DATA = {
                     "Bộ ảnh được ghi lại tại Aqua City – nơi những con đường xanh mát và không gian yên bình đã chứng kiến những khoảnh khắc dịu dàng của chúng mình. Giữa thiên nhiên trong lành, từng ánh nhìn, nụ cười đều trở nên thật tự nhiên và trọn vẹn.",
                 prefix: "./assets/images/albums/aqua/aqua-",
                 count: 11,
-                ext: ".jpg",
+                ext: ".webp",
             },
         ],
     },
@@ -352,4 +352,3 @@ window.WEDDING_DATA = {
 
 
 
-// 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

@@ -201,6 +201,8 @@ function renderHero(guestName) {
     heroImage.src = weddingData.media.heroImage;
     heroImage.alt = `Ảnh cưới của ${getCoupleFullNamesText()}`;
     heroImage.style.objectPosition = weddingData.media.heroPosition || "";
+    heroImage.setAttribute("fetchpriority", "high");
+    heroImage.setAttribute("decoding", "sync");
 
     document.getElementById("heroTitle").innerHTML = getCoupleNamesHtml();
     const heroSubtitle = document.getElementById("heroSubtitle");
@@ -254,7 +256,7 @@ function renderCoupleSection() {
                 ? ` style="object-position: ${person.imagePosition};"`
                 : "";
             const imageHtml = person.image
-                ? `<img src="${person.image}" alt="${person.imageAlt}"${imageStyle}>`
+                ? `<img src="${person.image}" alt="${person.imageAlt}"${imageStyle} loading="lazy" decoding="async">`
                 : "";
             const infoLines = [
                 person.birthYear ? `<p>Sinh năm: ${person.birthYear}</p>` : "",
@@ -289,7 +291,7 @@ function renderStorySection() {
             (item) => `
                 <article class="timeline-item">
                     <div class="timeline-image">
-                        <img src="${item.image}" alt="${item.imageAlt}">
+                        <img src="${item.image}" alt="${item.imageAlt}" loading="lazy" decoding="async">
                     </div>
                     <div class="timeline-copy">
                         <span class="timeline-date">${item.date}</span>
@@ -355,7 +357,7 @@ function renderGallerySection() {
         .map(
             (item, index) => `
                 <figure class="gallery-slide ${index === 0 ? "is-active" : ""}" data-slide-index="${index}">
-                    <img src="${item.src}" alt="${item.alt}"${item.position ? ` style="object-position: ${item.position};"` : ""}>
+                    <img src="${item.src}" alt="${item.alt}"${item.position ? ` style="object-position: ${item.position};"` : ""}${index === 0 ? ' fetchpriority="low"' : ' loading="lazy"'} decoding="async">
                 </figure>
             `,
         )
