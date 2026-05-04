@@ -78,6 +78,8 @@ const revealItems = document.querySelectorAll("[data-reveal]");
 const quickNav = document.querySelector('[data-section="quickNav"]');
 
 let musicPlaying = false;
+let autoScrollRaf = null;
+let autoScrollActive = false;
 
 function pad(value) {
     return String(value).padStart(2, "0");
@@ -683,6 +685,47 @@ function pauseMusic() {
     updateMusicButton();
 }
 
+function stopAutoScroll() {
+    if (autoScrollRaf) {
+        cancelAnimationFrame(autoScrollRaf);
+        autoScrollRaf = null;
+    }
+    autoScrollActive = false;
+}
+
+function startAutoScroll() {
+    // px per second - tốc độ vừa phải
+    const speed = 60;
+    let lastTime = null;
+
+    function step(timestamp) {
+        if (!autoScrollActive) return;
+
+        if (lastTime === null) {
+            lastTime = timestamp;
+            autoScrollRaf = requestAnimationFrame(step);
+            return;
+        }
+
+        const elapsed = timestamp - lastTime;
+        lastTime = timestamp;
+
+        const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+        const current = window.scrollY;
+
+        if (current >= maxScroll) {
+            stopAutoScroll();
+            return;
+        }
+
+        window.scrollBy(0, (speed * elapsed) / 1000);
+        autoScrollRaf = requestAnimationFrame(step);
+    }
+
+    autoScrollActive = true;
+    autoScrollRaf = requestAnimationFrame(step);
+}
+
 function openInvitation() {
     body.classList.add("is-open");
 
@@ -691,6 +734,8 @@ function openInvitation() {
         updateMusicButton();
         playMusic();
     }
+
+    setTimeout(startAutoScroll, 800);
 }
 
 function handleMusicToggle() {
@@ -782,6 +827,10 @@ function setupRevealAnimation() {
 renderPageContent();
 
 openInviteBtn.addEventListener("click", openInvitation);
+
+["wheel", "touchstart", "keydown"].forEach((event) => {
+    window.addEventListener(event, () => { if (autoScrollActive) stopAutoScroll(); }, { passive: true });
+});
 musicToggle.addEventListener("click", handleMusicToggle);
 rsvpForm.addEventListener("submit", handleRsvpSubmit);
 guestbookForm.addEventListener("submit", handleGuestbookSubmit);

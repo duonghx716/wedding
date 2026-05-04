@@ -2,7 +2,7 @@ window.WEDDING_DATA = {
     defaultProfile: "groom",
     sections: {
         petals: true,
-        music: false,
+        music: true,
         quickNav: true,
         invitationLetter: true,
         countdown: true,
