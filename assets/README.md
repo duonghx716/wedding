@@ -4,31 +4,30 @@ Thay media bằng cách giữ nguyên tên file bên dưới và ghi đè file m
 
 ## 1. Ảnh profile riêng cho nhà trai / nhà gái
 
-- `images/profiles/groom-profile.jpg`
-- `images/profiles/bride-profile.jpg`
+- `images/profiles/groom-profile.webp`
+- `images/profiles/bride-profile.webp`
 
 ## 2. Ảnh highlight cho slider
 
-- `images/highlights/slide-01.jpg`
-- `images/highlights/slide-02.jpg`
-- `images/highlights/slide-03.jpg`
-- `images/highlights/slide-04.jpg`
-- `images/highlights/slide-05.jpg`
-- `images/highlights/slide-06.jpg`
+- `images/highlights/slide-01.webp`
+- `images/highlights/slide-02.webp`
+- `images/highlights/slide-03.webp`
+- `images/highlights/slide-04.webp`
+- `images/highlights/slide-05.webp`
 
 ## 3. Album BLEND
 
-- `images/albums/blend/blend-01.jpg`
-- `images/albums/blend/blend-02.jpg`
+- `images/albums/blend/blend-01.webp`
+- `images/albums/blend/blend-02.webp`
 - ...
-- `images/albums/blend/blend-31.jpg`
+- `images/albums/blend/blend-18.webp`
 
-## 4. Album 2525
+## 4. Album Aqua
 
-- `images/albums/aqua/aqua-01.jpg`
-- `images/albums/aqua/aqua-02.jpg`
+- `images/albums/aqua/aqua-01.webp`
+- `images/albums/aqua/aqua-02.webp`
 - ...
-- `images/albums/aqua/aqua-11.jpg`
+- `images/albums/aqua/aqua-11.webp`
 
 ## 5. Nhạc nền
 
@@ -38,7 +37,8 @@ Thay media bằng cách giữ nguyên tên file bên dưới và ghi đè file m
 
 - `images/qr/groom-qr-clean.png`: mã QR vuông để hiển thị trong card mừng cưới
 - `images/qr/groom-qr-card.jpg`: bản crop đầy đủ từ ảnh ngân hàng
-- `images/qr/bride-qr.jpg`: file dự phòng cho QR cô dâu khi có sau
+- `images/qr/bride-qr-clean.png`: mã QR vuông để hiển thị trong card mừng cưới
+- `images/qr/bride-qr-card.jpg`: bản crop đầy đủ từ ảnh ngân hàng
 
 ## 7. Video cưới
 

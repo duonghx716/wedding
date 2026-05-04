@@ -30,9 +30,9 @@ window.WEDDING_DATA = {
             media: {
                 coverImage: "./assets/images/highlights/slide-01.webp",
                 coverPosition: "35% 20%",
-                heroImage: "./assets/images/highlights/slide-01.webp",
+                heroImage: "./assets/images/albums/blend/blend-17.webp",
                 heroPosition: "35% 20%",
-                footerImage: "./assets/images/highlights/slide-05.webp",
+                footerImage: "./assets/images/highlights/slide-04.webp",
             },
             wedding: {
                 solarDateLong: "Thứ Hai, 01 tháng 06 năm 2026",
@@ -43,7 +43,7 @@ window.WEDDING_DATA = {
                 guestArrivalTime: "10:30",
                 ceremonyTime: "11:00",
                 footerText:
-                    "Thiệp mời phía nhà trai • Xuân Dương & Bích Nga • 01.06.2026",
+                    `Thiệp mời phía nhà trai \n• Xuân Dương & Bích Nga \n• 01.06.2026`,
             },
             sections: {
                 countdown: true,
@@ -77,17 +77,17 @@ window.WEDDING_DATA = {
                 coverPosition: "42% 58%",
                 heroImage: "./assets/images/profiles/bride-profile.webp",
                 heroPosition: "42% 58%",
-                footerImage: "./assets/images/highlights/slide-06.webp",
+                footerImage: "./assets/images/highlights/slide-05.webp",
             },
             wedding: {
                 solarDateLong: "Thông tin lễ bên nhà gái",
-                solarDateShort: "Cập nhật sau",
+                solarDateShort: "30.05.2026",
                 lunarDate:
                     "Địa điểm nhà gái: Thôn Quảng Cư 2 - Xã Ea Kar - Tỉnh Đắk Lắk",
                 countdownISO: "",
                 city: "Tư gia nhà gái • Thôn Quảng Cư 2 - Xã Ea Kar - Tỉnh Đắk Lắk",
-                guestArrivalTime: "Cập nhật sau",
-                ceremonyTime: "Cập nhật sau",
+                guestArrivalTime: "10:30",
+                ceremonyTime: "11:00",
                 footerText: "Thiệp mời phía nhà gái • Xuân Dương & Bích Nga",
             },
             sections: {
@@ -110,7 +110,7 @@ window.WEDDING_DATA = {
         },
     },
     site: {
-        title: "Thiệp Cưới Online | Xuân Dương & Bích Nga",
+        title: "Thiệp Cưới Online | Bích Nga & Xuân Dương",
         description:
             "Thiệp cưới online phong cách Việt Nam với đầy đủ thông tin lễ cưới, bản đồ, album, RSVP và lời chúc.",
         guestDefaultName: "Anh/Chị & Gia đình",
@@ -119,8 +119,8 @@ window.WEDDING_DATA = {
         eyebrow: "Trân trọng kính mời",
         openButtonLabel: "Mở thiệp",
         invitationText:
-            "Trân trọng kính mời Quý khách đến chung vui cùng gia đình trong lễ thành hôn của chúng tôi.",
-        // note: "Toàn bộ ảnh hiện tại đã được thay bằng bộ ảnh mới, chia theo từng thư mục để tiện xem và thay thế về sau.",
+            "Trân trọng kính mời Quý khách cùng gia đình đến chung vui trong ngày thành hôn của chúng tôi.",
+        note: "Mời Quý khách mở thiệp, phần hồi hộp xin nhường lại cho cô dâu chú rể.",
     },
     wedding: {
         solarDateLong: "Thứ Hai, 01 tháng 06 năm 2026",
@@ -133,21 +133,21 @@ window.WEDDING_DATA = {
         invitationEyebrow: "Lời mời chính thức",
         invitationHeading: "Trân trọng kính mời",
         invitationBody:
-            "Sự hiện diện của Quý khách là niềm vinh hạnh cho gia đình chúng tôi.",
-        invitationSign: "Hân hạnh kính mời!",
+            "Sự hiện diện của Quý khách là niềm vinh hạnh lớn đối với gia đình chúng tôi.",
+        invitationSign: "Gia đình chúng tôi hân hạnh được đón tiếp.",
         giftIntro:
-            "Nếu bạn không thể đến trực tiếp, có thể gửi lời chúc và món quà nhỏ đến cô dâu chú rể qua thông tin mẫu bên dưới.",
-        footerEyebrow: "Thank you",
+            "Trong trường hợp Quý khách muốn gửi thêm lời chúc đến cô dâu chú rể theo một cách riêng, vui lòng nhấn nút bên dưới để xem thông tin.",
+        footerEyebrow: "Trân quý",
         footerHeading: "Cảm ơn Quý khách đã dành thời gian xem thiệp mời",
         footerText:
-            "Xuân Dương & Bích Nga • 01.06.2026 • Hân hạnh được đón tiếp",
+            "Xuân Dương & Bích Nga • 01.06.2026 • Hân hạnh được đón tiếp Quý khách",
     },
     media: {
         coverImage: "./assets/images/highlights/slide-01.webp",
         coverPosition: "50% 84%",
         heroImage: "./assets/images/highlights/slide-02.webp",
         heroPosition: "50% 82%",
-        footerImage: "./assets/images/highlights/slide-05.webp",
+        footerImage: "./assets/images/highlights/slide-04.webp",
         musicSrc: "./assets/music/background-music.mp3",
         videoSrc: "./assets/video/wedding-highlight.mp4",
         videoPoster: "./assets/images/highlights/slide-03.webp",
@@ -158,7 +158,7 @@ window.WEDDING_DATA = {
     },
     couple: {
         groom: {
-            roleLabel: "🤵 Chú rể",
+            roleLabel: "Chú rể",
             shortName: "Xuân Dương",
             fullName: "Xuân Dương",
             birthYear: "",
@@ -172,18 +172,18 @@ window.WEDDING_DATA = {
             imagePosition: "35% 18%",
             gift: {
                 enabled: true,
-                title: "Mừng cưới chú rể",
+                title: "Gửi lời chúc tới chú rể",
                 bankName: "VPBank",
                 accountNumber: "178185338",
                 accountName: "HA XUAN DUONG",
                 qrLabel: "QR chú rể",
                 qrImage: "./assets/images/qr/groom-qr-clean.png",
                 qrCardImage: "./assets/images/qr/groom-qr-card.jpg",
-                note: "Quét mã QR hoặc chuyển khoản trực tiếp đến chú rể để gửi lời chúc mừng.",
+                note: "Xin chân thành cảm ơn tấm lòng và tình cảm Quý khách đã dành cho chú rể.",
             },
         },
         bride: {
-            roleLabel: "👰 Cô dâu",
+            roleLabel: "Cô dâu",
             shortName: "Bích Nga",
             fullName: "Bích Nga",
             birthYear: "",
@@ -197,47 +197,47 @@ window.WEDDING_DATA = {
             imagePosition: "42% 58%",
             gift: {
                 enabled: true,
-                title: "Mừng cưới cô dâu",
+                title: "Gửi lời chúc tới cô dâu",
                 bankName: "VietinBank",
                 accountNumber: "104882875540",
                 accountName: "CHU THI BICH NGA",
                 qrLabel: "QR cô dâu",
                 qrImage: "./assets/images/qr/bride-qr-clean.png",
                 qrCardImage: "./assets/images/qr/bride-qr-card.jpg",
-                note: "Quét mã QR hoặc chuyển khoản trực tiếp đến cô dâu để gửi lời chúc mừng.",
+                note: "Xin chân thành cảm ơn tấm lòng và tình cảm Quý khách đã dành cho cô dâu.",
             },
         },
     },
     story: [
         {
-            date: "Khoảnh khắc đầu tiên",
-            title: "Bộ ảnh mới",
+            date: "Từ lời chào đầu tiên",
+            title: "Mở đầu thật dịu dàng",
             description:
-                "Website hiện đã chuyển sang dùng toàn bộ ảnh thật từ bộ ảnh bạn cung cấp, không còn dùng ảnh mẫu cũ.",
+                "Mỗi tấm ảnh là một lát cắt rất thật của hành trình chúng tôi đi cùng nhau, bắt đầu bằng những lần trò chuyện tưởng chừng rất bình thường nhưng lại hóa ra đặc biệt.",
             image: "./assets/images/highlights/slide-01.webp",
             imageAlt: "Khoảnh khắc nổi bật 1",
         },
         {
-            date: "Album ",
-            title: "Ngoại cảnh chính",
+            date: "Khi tình yêu đủ đầy",
+            title: "Bình yên là có nhau",
             description:
-                "Những khung hình nổi bật nhất được đưa lên slider tự động để khách mời xem nhanh ngay trên đầu section ảnh.",
+                "Chúng tôi học cách yêu thương, lắng nghe và ở cạnh nhau qua những ngày vui lẫn những ngày bận rộn. May mắn là đến giờ vẫn còn rất hợp ý, kể cả lúc chọn món ăn.",
             image: "./assets/images/highlights/slide-02.webp",
             imageAlt: "Khoảnh khắc nổi bật 2",
         },
         {
-            date: "Album",
-            title: "Layout thiết kế",
+            date: "Ngày quyết định",
+            title: "Chính thức về chung một nhà",
             description:
-                "Nhóm ảnh dàn trang và thiết kế sẵn cũng được giữ nguyên thành một album riêng theo đúng thư mục nguồn.",
+                "Sau nhiều lần nghiêm túc bàn chuyện tương lai, xen giữa vài cuộc đối thoại kiểu “ăn gì cũng được”, chúng tôi quyết định cùng nhau bước đến hôn nhân.",
             image: "./assets/images/highlights/slide-03.webp",
             imageAlt: "Khoảnh khắc nổi bật 3",
         },
         {
-            date: "Nhà trai - Nhà gái",
-            title: "Ảnh cá nhân hóa",
+            date: "Ngày vui sắp tới",
+            title: "Hẹn gặp trong niềm hân hoan",
             description:
-                "Mỗi phiên bản thiệp mời đang dùng ảnh profile riêng để phù hợp với link nhà trai và nhà gái.",
+                "Sự hiện diện của Quý khách sẽ là món quà quý giá để ngày vui của chúng tôi thêm trọn vẹn, ấm áp và nhiều tiếng cười.",
             image: "./assets/images/highlights/slide-04.webp",
             imageAlt: "Khoảnh khắc nổi bật 4",
         },
@@ -245,7 +245,7 @@ window.WEDDING_DATA = {
     events: [
         {
             id: "groomCeremony",
-            tag: "💍 Lễ tân hôn",
+            tag: "Lễ tân hôn",
             title: "Tư gia nhà trai",
             datetime:
                 "Cử hành vào lúc 09:00, Thứ Hai, ngày 01 tháng 06 năm 2026",
@@ -258,7 +258,7 @@ window.WEDDING_DATA = {
         },
         {
             id: "party",
-            tag: "🎉 Tiệc cưới",
+            tag: "Tiệc cưới",
             title: "Tư gia nhà trai",
             datetime:
                 "Đón khách: 10:30 • Khai tiệc: 11:00 • Thứ Hai, 01 tháng 06 năm 2026",
@@ -271,9 +271,9 @@ window.WEDDING_DATA = {
         },
         {
             id: "brideCeremony",
-            tag: "🌸 Lễ bên nhà gái",
+            tag: "Lễ bên nhà gái",
             title: "Tư gia nhà gái",
-            datetime: "Vui lòng cập nhật ngày giờ cử hành bên nhà gái",
+            datetime:  "Đón khách: 10:30 • Khai tiệc: 11:00 • Thứ Hai, 30 tháng 05 năm 2026",
             address: "Thôn Quảng Cư 2 - Xã Ea Kar - Tỉnh Đắk Lắk",
             mapLabel: "Map nhà gái",
             lat: "",
@@ -286,50 +286,45 @@ window.WEDDING_DATA = {
         highlights: [
             {
                 src: "./assets/images/highlights/slide-01.webp",
-                alt: "Highlight 1",
+                alt: "Khoảnh khắc nổi bật 1",
                 position: "50% 88%",
             },
             {
                 src: "./assets/images/highlights/slide-02.webp",
-                alt: "Highlight 2",
+                alt: "Khoảnh khắc nổi bật 2",
                 position: "54% 86%",
             },
             {
                 src: "./assets/images/highlights/slide-03.webp",
-                alt: "Highlight 3",
+                alt: "Khoảnh khắc nổi bật 3",
                 position: "55% 78%",
             },
             {
                 src: "./assets/images/highlights/slide-04.webp",
-                alt: "Highlight 4",
+                alt: "Khoảnh khắc nổi bật 4",
                 position: "50% 82%",
             },
             {
                 src: "./assets/images/highlights/slide-05.webp",
-                alt: "Highlight 5",
-                position: "50% 68%",
-            },
-            {
-                src: "./assets/images/highlights/slide-06.webp",
-                alt: "Highlight 6",
+                alt: "Khoảnh khắc nổi bật 5",
                 position: "50% 42%",
             },
         ],
         albums: [
             {
                 key: "blend",
-                title: "Album",
+                title: "Album ngoại cảnh",
                 description:
-                    "Bộ ảnh ngoại cảnh đầy đủ, hiển thị toàn bộ để khách mời có thể xem trọn album.",
+                    "Những khung hình ngoài trời được sắp lại theo đúng thứ tự để Quý khách xem trọn vẹn hành trình ảnh cưới của chúng tôi.",
                 prefix: "./assets/images/albums/blend/blend-",
-                count: 31,
+                count: 18,
                 ext: ".webp",
             },
             {
                 key: "aqua",
-                title: "Album",
+                title: "Album Aqua",
                 description:
-                    "Bộ ảnh được ghi lại tại Aqua City – nơi những con đường xanh mát và không gian yên bình đã chứng kiến những khoảnh khắc dịu dàng của chúng mình. Giữa thiên nhiên trong lành, từng ánh nhìn, nụ cười đều trở nên thật tự nhiên và trọn vẹn.",
+                    "Bộ ảnh được ghi lại tại Aqua City, nơi những con đường xanh mát và không gian yên bình đã lưu giữ rất nhiều khoảnh khắc dịu dàng. Ảnh đẹp là nhờ nhiếp ảnh gia, còn vẻ tự nhiên là nhờ chúng tôi đã kịp quen với ống kính.",
                 prefix: "./assets/images/albums/aqua/aqua-",
                 count: 11,
                 ext: ".webp",
@@ -340,15 +335,12 @@ window.WEDDING_DATA = {
         {
             name: "Chị Mai Anh",
             message:
-                "Chúc hai em trăm năm hạnh phúc, luôn yêu thương và đồng hành cùng nhau trong mọi chặng đường.",
+                "Chúc hai em trăm năm hạnh phúc, luôn yêu thương, sẻ chia và đồng hành cùng nhau trong mọi chặng đường.",
         },
         {
             name: "Anh Hoàng Nam",
             message:
-                "Mong ngày vui của hai bạn thật trọn vẹn, ấm áp và ngập tràn tiếng cười.",
+                "Chúc ngày vui của hai bạn thật trọn vẹn, ấm áp và ngập tràn tiếng cười từ đầu buổi đến tận lúc ra về.",
         },
     ],
 };
-
-
-

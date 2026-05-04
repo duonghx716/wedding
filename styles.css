@@ -10,11 +10,11 @@
     --line: rgba(126, 101, 86, 0.16);
     --shadow: 0 24px 80px rgba(106, 79, 63, 0.14);
     --hero-overlay: linear-gradient(135deg, rgba(255, 250, 245, 0.2), rgba(123, 89, 74, 0.38));
-    --cover-image: url("./assets/images/highlights/slide-01.jpg");
+    --cover-image: url("./assets/images/highlights/slide-01.webp");
     --cover-position: center center;
-    --footer-image: url("./assets/images/highlights/slide-05.jpg");
-    --serif: "Cormorant Garamond", "Iowan Old Style", "Baskerville", "Times New Roman", serif;
-    --sans: "Avenir Next", "Segoe UI", sans-serif;
+    --footer-image: url("./assets/images/highlights/slide-04.webp");
+    --serif: "Lora", "Iowan Old Style", "Baskerville", "Times New Roman", serif;
+    --sans: "Be Vietnam Pro", "Avenir Next", "Segoe UI", sans-serif;
 }
 
 * {
@@ -37,6 +37,9 @@ body {
         linear-gradient(180deg, #fffaf5 0%, var(--bg) 40%, #f8efe7 100%);
     color: var(--text);
     font-family: var(--sans);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
 }
 
 body:not(.is-open) {
@@ -134,7 +137,7 @@ textarea {
     margin: 0;
     font-family: var(--serif);
     font-weight: 600;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.01em;
 }
 
 .cover-card h1 {
@@ -197,6 +200,7 @@ body.is-open .cover-screen {
     padding: 0 24px;
     border-radius: 999px;
     border: 1px solid transparent;
+    font-weight: 600;
     transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
     cursor: pointer;
 }
@@ -282,6 +286,9 @@ body.is-open .page-shell {
     min-height: 520px;
     overflow: hidden;
     border-radius: 36px;
+    opacity: 0;
+    transform: translateY(32px) scale(0.975);
+    transition: opacity 0.9s ease, transform 1.1s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .hero-media::after {
@@ -294,6 +301,8 @@ body.is-open .page-shell {
 .hero-media img {
     height: 100%;
     object-fit: cover;
+    transform: scale(1.08);
+    transition: transform 5s ease;
 }
 
 .hero-content {
@@ -302,6 +311,46 @@ body.is-open .page-shell {
     justify-content: center;
     padding: 42px;
     border-radius: 36px;
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.8s ease 0.14s, transform 0.95s cubic-bezier(0.22, 1, 0.36, 1) 0.14s;
+}
+
+.hero-content > * {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.65s ease, transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.hero-content > *:nth-child(1) {
+    transition-delay: 0.22s;
+}
+
+.hero-content > *:nth-child(2) {
+    transition-delay: 0.3s;
+}
+
+.hero-content > *:nth-child(3) {
+    transition-delay: 0.38s;
+}
+
+.hero-content > *:nth-child(4) {
+    transition-delay: 0.46s;
+}
+
+.hero-content > *:nth-child(5) {
+    transition-delay: 0.54s;
+}
+
+body.is-open .hero-media,
+body.is-open .hero-content,
+body.is-open .hero-content > * {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+body.is-open .hero-media img {
+    transform: scale(1);
 }
 
 .hero-title {
@@ -365,6 +414,9 @@ body.is-open .page-shell {
     margin: 28px auto 0;
     padding: 14px;
     border-radius: 24px;
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.7s ease 0.45s, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.45s;
 }
 
 .quick-nav::-webkit-scrollbar {
@@ -383,6 +435,18 @@ body.is-open .page-shell {
     color: var(--muted);
     line-height: 1;
     white-space: nowrap;
+    transition: transform 0.24s ease, background-color 0.24s ease, color 0.24s ease;
+}
+
+.quick-nav a:hover {
+    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.92);
+    color: var(--text);
+}
+
+body.is-open .quick-nav {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .section,
@@ -446,6 +510,12 @@ body.is-open .page-shell {
     border-radius: 24px;
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(247, 233, 228, 0.85));
     border: 1px solid rgba(255, 255, 255, 0.6);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.countdown-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 44px rgba(106, 79, 63, 0.12);
 }
 
 .countdown-item span {
@@ -477,6 +547,16 @@ body.is-open .page-shell {
 .gift-card {
     border-radius: 28px;
     overflow: hidden;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.person-card:hover,
+.event-card:hover,
+.map-card:hover,
+.gift-card:hover,
+.wish-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 26px 70px rgba(106, 79, 63, 0.18);
 }
 
 .person-card.is-featured {
@@ -550,6 +630,11 @@ body.is-open .page-shell {
     height: 100%;
     min-height: 240px;
     object-fit: cover;
+    transition: transform 0.7s ease;
+}
+
+.timeline-item:hover .timeline-image img {
+    transform: scale(1.04);
 }
 
 .timeline-copy {
@@ -639,7 +724,7 @@ body.is-open .page-shell {
     position: absolute;
     inset: 0;
     opacity: 0;
-    transition: opacity 0.8s ease;
+    transition: opacity 0.55s ease;
 }
 
 .gallery-slide.is-active {
@@ -650,6 +735,11 @@ body.is-open .page-shell {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transform: scale(1.06);
+}
+
+.gallery-slide.is-active img {
+    animation: galleryPan 2.2s ease both;
 }
 
 .gallery-dots {
@@ -731,6 +821,7 @@ body.is-open .page-shell {
     overflow: hidden;
     border-radius: 22px;
     box-shadow: var(--shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .album-item img {
@@ -739,8 +830,13 @@ body.is-open .page-shell {
     transition: transform 0.45s ease;
 }
 
+.album-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 22px 55px rgba(106, 79, 63, 0.16);
+}
+
 .album-item:hover img {
-    transform: scale(1.03);
+    transform: scale(1.05);
 }
 
 .video-card {
@@ -788,6 +884,8 @@ body.is-open .page-shell {
     align-items: center;
     gap: 24px;
     padding: 24px;
+    margin-top: 18px;
+    border-top: 1px solid rgba(215, 168, 158, 0.2);
 }
 
 .gift-copy h4 {
@@ -795,10 +893,23 @@ body.is-open .page-shell {
     font-size: 2rem;
 }
 
+.gift-card > .gift-copy {
+    padding: 24px;
+    text-align: center;
+}
+
+.gift-summary {
+    margin: 14px 0 0;
+    color: var(--muted);
+}
+
+.gift-toggle-btn {
+    margin-top: 18px;
+}
+
 .gift-detail-list {
     display: grid;
     gap: 12px;
-    margin-top: 18px;
 }
 
 .gift-detail {
@@ -829,6 +940,11 @@ body.is-open .page-shell {
     color: var(--muted);
 }
 
+.gift-card.is-open .gift-toggle-btn {
+    background: var(--accent-soft);
+    border-color: rgba(215, 168, 158, 0.32);
+}
+
 .gift-qr-panel {
     display: grid;
     place-items: center;
@@ -852,6 +968,7 @@ body.is-open .page-shell {
     margin: 0 auto;
     border-radius: 18px;
     box-shadow: 0 20px 55px rgba(44, 28, 23, 0.12);
+    animation: qrFloat 4.2s ease-in-out infinite;
 }
 
 .rsvp-form,
@@ -927,12 +1044,102 @@ body.is-open .page-shell {
 .reveal {
     opacity: 0;
     transform: translateY(24px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
+    transition:
+        opacity 0.7s ease var(--reveal-delay, 0ms),
+        transform 0.8s cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay, 0ms);
 }
 
 .reveal.is-visible {
     opacity: 1;
     transform: translateY(0);
+}
+
+.reveal .section-heading,
+.reveal .countdown-item,
+.reveal .person-card,
+.reveal .timeline-item,
+.reveal .event-card,
+.reveal .map-card,
+.reveal .album-block,
+.reveal .gift-card,
+.reveal .wish-card {
+    opacity: 0;
+    transform: translateY(22px) scale(0.985);
+    transition: opacity 0.65s ease, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal.is-visible .section-heading,
+.reveal.is-visible .countdown-item,
+.reveal.is-visible .person-card,
+.reveal.is-visible .timeline-item,
+.reveal.is-visible .event-card,
+.reveal.is-visible .map-card,
+.reveal.is-visible .album-block,
+.reveal.is-visible .gift-card,
+.reveal.is-visible .wish-card {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.reveal.is-visible .section-heading {
+    transition-delay: 90ms;
+}
+
+.reveal.is-visible .countdown-item:nth-child(1),
+.reveal.is-visible .person-card:nth-child(1),
+.reveal.is-visible .timeline-item:nth-child(1),
+.reveal.is-visible .event-card:nth-child(1),
+.reveal.is-visible .map-card:nth-child(1),
+.reveal.is-visible .album-block:nth-child(1),
+.reveal.is-visible .gift-card:nth-child(1),
+.reveal.is-visible .wish-card:nth-child(1) {
+    transition-delay: 140ms;
+}
+
+.reveal.is-visible .countdown-item:nth-child(2),
+.reveal.is-visible .person-card:nth-child(2),
+.reveal.is-visible .timeline-item:nth-child(2),
+.reveal.is-visible .event-card:nth-child(2),
+.reveal.is-visible .map-card:nth-child(2),
+.reveal.is-visible .album-block:nth-child(2),
+.reveal.is-visible .gift-card:nth-child(2),
+.reveal.is-visible .wish-card:nth-child(2) {
+    transition-delay: 220ms;
+}
+
+.reveal.is-visible .countdown-item:nth-child(3),
+.reveal.is-visible .timeline-item:nth-child(3),
+.reveal.is-visible .event-card:nth-child(3),
+.reveal.is-visible .map-card:nth-child(3),
+.reveal.is-visible .wish-card:nth-child(3) {
+    transition-delay: 300ms;
+}
+
+.reveal.is-visible .countdown-item:nth-child(4),
+.reveal.is-visible .timeline-item:nth-child(4),
+.reveal.is-visible .wish-card:nth-child(4) {
+    transition-delay: 380ms;
+}
+
+@keyframes galleryPan {
+    0% {
+        transform: scale(1.09);
+        filter: saturate(0.94);
+    }
+    100% {
+        transform: scale(1);
+        filter: saturate(1);
+    }
+}
+
+@keyframes qrFloat {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-6px);
+    }
 }
 
 @media (max-width: 980px) {

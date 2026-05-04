@@ -80,6 +80,10 @@ const quickNav = document.querySelector('[data-section="quickNav"]');
 let musicPlaying = false;
 let autoScrollRaf = null;
 let autoScrollActive = false;
+const AUTO_SCROLL_SPEED = 300;
+const AUTO_SCROLL_START_DELAY = 500;
+const GALLERY_SLIDE_INTERVAL = 1500;
+const ASSET_VERSION = "20260504-3";
 
 function pad(value) {
     return String(value).padStart(2, "0");
@@ -97,6 +101,15 @@ function getGuestNameFromUrl() {
     const params = new URLSearchParams(window.location.search);
     const rawName = params.get("name");
     return rawName ? rawName.trim() : weddingData.site.guestDefaultName;
+}
+
+function withAssetVersion(src) {
+    if (!src || !src.startsWith("./assets/")) {
+        return src;
+    }
+
+    const separator = src.includes("?") ? "&" : "?";
+    return `${src}${separator}v=${ASSET_VERSION}`;
 }
 
 function buildMapLink(lat, lng) {
@@ -200,12 +213,14 @@ function renderCover() {
 
 function renderHero(guestName) {
     const heroImage = document.getElementById("heroImage");
-    heroImage.src = weddingData.media.heroImage;
+    heroImage.src = withAssetVersion(weddingData.media.heroImage);
     heroImage.alt = `Ảnh cưới của ${getCoupleFullNamesText()}`;
     heroImage.style.objectPosition = weddingData.media.heroPosition || "";
     heroImage.setAttribute("fetchpriority", "high");
     heroImage.setAttribute("decoding", "sync");
 
+    document.getElementById("heroEyebrow").textContent =
+        `Thiệp mời ${weddingData.profile.label.toLowerCase()}`;
     document.getElementById("heroTitle").innerHTML = getCoupleNamesHtml();
     const heroSubtitle = document.getElementById("heroSubtitle");
     heroSubtitle.textContent = "";
@@ -258,7 +273,7 @@ function renderCoupleSection() {
                 ? ` style="object-position: ${person.imagePosition};"`
                 : "";
             const imageHtml = person.image
-                ? `<img src="${person.image}" alt="${person.imageAlt}"${imageStyle} loading="lazy" decoding="async">`
+                ? `<img src="${withAssetVersion(person.image)}" alt="${person.imageAlt}"${imageStyle} loading="lazy" decoding="async">`
                 : "";
             const infoLines = [
                 person.birthYear ? `<p>Sinh năm: ${person.birthYear}</p>` : "",
@@ -293,7 +308,7 @@ function renderStorySection() {
             (item) => `
                 <article class="timeline-item">
                     <div class="timeline-image">
-                        <img src="${item.image}" alt="${item.imageAlt}" loading="lazy" decoding="async">
+                        <img src="${withAssetVersion(item.image)}" alt="${item.imageAlt}" loading="lazy" decoding="async">
                     </div>
                     <div class="timeline-copy">
                         <span class="timeline-date">${item.date}</span>
@@ -359,7 +374,7 @@ function renderGallerySection() {
         .map(
             (item, index) => `
                 <figure class="gallery-slide ${index === 0 ? "is-active" : ""}" data-slide-index="${index}">
-                    <img src="${item.src}" alt="${item.alt}"${item.position ? ` style="object-position: ${item.position};"` : ""}${index === 0 ? ' fetchpriority="low"' : ' loading="lazy"'} decoding="async">
+                    <img src="${withAssetVersion(item.src)}" alt="${item.alt}"${item.position ? ` style="object-position: ${item.position};"` : ""}${index === 0 ? ' fetchpriority="low"' : ' loading="lazy"'} decoding="async">
                 </figure>
             `,
         )
@@ -380,24 +395,27 @@ function renderGallerySection() {
 
     const albumBlocks = weddingData.gallery.albums
         .map((album) => {
-            const images = Array.from(
-                { length: album.count },
-                (_item, index) => {
-                    const number = String(index + 1).padStart(2, "0");
-                    const src = `${album.prefix}${number}${album.ext}`;
-                    return `
+            const imageSources = album.files
+                ? album.files.map((file) => `${album.prefix}${file}${album.ext}`)
+                : Array.from({ length: album.count }, (_item, index) => {
+                      const number = String(index + 1).padStart(2, "0");
+                      return `${album.prefix}${number}${album.ext}`;
+                  });
+            const images = imageSources
+                .map(
+                    (src, index) => `
                     <figure class="album-item">
-                        <img src="${src}" alt="${album.title} ${number}" loading="lazy">
+                        <img src="${withAssetVersion(src)}" alt="${album.title} ${String(index + 1).padStart(2, "0")}" loading="lazy">
                     </figure>
-                `;
-                },
-            ).join("");
+                `,
+                )
+                .join("");
 
             return `
                 <section class="album-block">
                     <div class="album-head">
                         <div>
-                            <p class="eyebrow">Thu muc anh</p>
+                            <p class="eyebrow">Thư mục ảnh</p>
                             <h4>${album.title}</h4>
                         </div>
                     </div>
@@ -447,7 +465,7 @@ function setupGallerySlider() {
         sliderTimer = setInterval(() => {
             const nextIndex = (activeIndex + 1) % slides.length;
             setActiveSlide(nextIndex);
-        }, 3500);
+        }, GALLERY_SLIDE_INTERVAL);
     };
 
     dots.forEach((dot, index) => {
@@ -532,7 +550,7 @@ function renderGiftSection() {
             const qrHtml = person.gift.qrImage
                 ? `
                     <div class="gift-qr-panel">
-                        <img class="qr-image" src="${person.gift.qrImage}" alt="${person.gift.qrLabel}">
+                        <img class="qr-image" src="${withAssetVersion(person.gift.qrImage)}" alt="${person.gift.qrLabel}">
                     </div>
                 `
                 : `<div class="qr-placeholder">${person.gift.qrLabel}</div>`;
@@ -543,10 +561,21 @@ function renderGiftSection() {
 
             return `
                 <article class="gift-card">
-                    <div class="gift-card-layout">
+                    <div class="gift-copy">
+                        <p class="person-role">${person.gift.title}</p>
+                        <h4>${person.fullName}</h4>
+                        <p class="gift-summary">Nếu Quý khách thuận tiện, có thể nhấn nút bên dưới để xem thông tin chi tiết.</p>
+                        <button
+                            class="secondary-btn gift-toggle-btn"
+                            type="button"
+                            aria-expanded="false"
+                        >
+                            Xem thông tin chuyển khoản
+                        </button>
+                        ${noteHtml}
+                    </div>
+                    <div class="gift-card-layout" hidden>
                         <div class="gift-copy">
-                            <p class="person-role">${person.gift.title}</p>
-                            <h4>${person.fullName}</h4>
                             <div class="gift-detail-list">
                                 <div class="gift-detail">
                                     <span class="gift-label">Ngân hàng</span>
@@ -561,7 +590,6 @@ function renderGiftSection() {
                                     <strong class="gift-value">${person.gift.accountName}</strong>
                                 </div>
                             </div>
-                            ${noteHtml}
                         </div>
                         ${qrHtml}
                     </div>
@@ -569,6 +597,30 @@ function renderGiftSection() {
             `;
         })
         .join("");
+}
+
+function setupGiftToggles() {
+    const giftGrid = document.getElementById("giftGrid");
+    if (!giftGrid) {
+        return;
+    }
+
+    giftGrid.querySelectorAll(".gift-card").forEach((card) => {
+        const toggleButton = card.querySelector(".gift-toggle-btn");
+        const detailPanel = card.querySelector(".gift-card-layout");
+        if (!toggleButton || !detailPanel) {
+            return;
+        }
+
+        toggleButton.addEventListener("click", () => {
+            const isOpen = card.classList.toggle("is-open");
+            detailPanel.hidden = !isOpen;
+            toggleButton.setAttribute("aria-expanded", String(isOpen));
+            toggleButton.textContent = isOpen
+                ? "Ẩn thông tin chuyển khoản"
+                : "Xem thông tin chuyển khoản";
+        });
+    });
 }
 
 function renderGuestbookSamples() {
@@ -597,7 +649,7 @@ function renderFooter() {
 function applyThemeAssets() {
     rootStyle.setProperty(
         "--cover-image",
-        `url("${weddingData.media.coverImage}")`,
+        `url("${withAssetVersion(weddingData.media.coverImage)}")`,
     );
     rootStyle.setProperty(
         "--cover-position",
@@ -605,9 +657,9 @@ function applyThemeAssets() {
     );
     rootStyle.setProperty(
         "--footer-image",
-        `url("${weddingData.media.footerImage}")`,
+        `url("${withAssetVersion(weddingData.media.footerImage)}")`,
     );
-    weddingMusic.src = weddingData.media.musicSrc;
+    weddingMusic.src = withAssetVersion(weddingData.media.musicSrc);
 }
 
 function renderPageContent() {
@@ -625,6 +677,7 @@ function renderPageContent() {
     renderGallerySection();
     renderVideoSection();
     renderGiftSection();
+    setupGiftToggles();
     renderGuestbookSamples();
     renderFooter();
     applySectionVisibility();
@@ -694,8 +747,6 @@ function stopAutoScroll() {
 }
 
 function startAutoScroll() {
-    // px per second - tốc độ vừa phải
-    const speed = 60;
     let lastTime = null;
 
     function step(timestamp) {
@@ -718,7 +769,7 @@ function startAutoScroll() {
             return;
         }
 
-        window.scrollBy(0, (speed * elapsed) / 1000);
+        window.scrollBy(0, (AUTO_SCROLL_SPEED * elapsed) / 1000);
         autoScrollRaf = requestAnimationFrame(step);
     }
 
@@ -735,7 +786,7 @@ function openInvitation() {
         playMusic();
     }
 
-    setTimeout(startAutoScroll, 800);
+    setTimeout(startAutoScroll, AUTO_SCROLL_START_DELAY);
 }
 
 function handleMusicToggle() {
@@ -805,6 +856,10 @@ function createPetals() {
 }
 
 function setupRevealAnimation() {
+    revealItems.forEach((item, index) => {
+        item.style.setProperty("--reveal-delay", `${index * 90}ms`);
+    });
+
     const observer = new IntersectionObserver(
         (entries) => {
             entries.forEach((entry) => {
