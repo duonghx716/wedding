@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="vi">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Thiệp Cưới Online</title>
+        <meta
+            name="description"
+            content="Thiệp cưới online phong cách Việt Nam với đầy đủ thông tin lễ cưới, bản đồ, album, RSVP và lời chúc."
+        />
+        <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+    <body>
+        <div class="petals" id="petals" aria-hidden="true"></div>
+
+        <div class="cover-screen" id="coverScreen">
+            <div class="cover-backdrop"></div>
+            <div class="cover-card">
+                <p class="eyebrow" id="coverEyebrow">Trân trọng kính mời</p>
+                <h1 id="coverNames">Tên cô dâu &amp; chú rể</h1>
+                <p class="cover-date" id="coverDate">Save the Date</p>
+                <p class="cover-lunar" id="coverLunar">Âm lịch</p>
+                <p class="cover-copy" id="coverCopy">
+                    Nội dung lời mời mở đầu.
+                </p>
+                <button class="primary-btn" id="openInviteBtn" type="button">
+                    Mở thiệp
+                </button>
+                <p class="cover-note" id="coverNote">Ghi chú mẫu</p>
+            </div>
+        </div>
+
+        <button
+            class="music-toggle"
+            id="musicToggle"
+            type="button"
+            aria-pressed="false"
+            hidden
+        >
+            Bật nhạc
+        </button>
+
+        <audio id="weddingMusic" preload="metadata" loop></audio>
+
+        <main class="page-shell" id="pageShell">
+            <section class="hero">
+                <div class="hero-media">
+                    <img id="heroImage" src="" alt="Ảnh cưới" />
+                </div>
+                <div class="hero-content">
+                    <p class="eyebrow" id="heroEyebrow">Wedding</p>
+                    <h2 class="hero-title" id="heroTitle">
+                        Tên cô dâu &amp; chú rể
+                    </h2>
+                    <p class="hero-subtitle" id="heroSubtitle"></p>
+                    <div class="hero-meta" id="heroMeta"></div>
+                    <div class="hero-actions">
+                        <a class="primary-btn" href="#countdown"
+                            >Xem thời gian</a
+                        >
+                        <!-- <a class="secondary-btn" href="#rsvp">Xác nhận tham dự</a> -->
+                    </div>
+                </div>
+            </section>
+
+            <nav
+                class="quick-nav"
+                aria-label="Điều hướng nhanh"
+                data-section="quickNav"
+            >
+                <a href="#countdown" data-nav-section="countdown">Đếm ngược</a>
+                <a href="#couple" data-nav-section="couple">Cô dâu chú rể</a>
+                <a href="#story" data-nav-section="story">Câu chuyện</a>
+                <a href="#events" data-nav-section="events">Lịch cưới</a>
+                <a href="#maps" data-nav-section="maps">Bản đồ</a>
+                <a href="#gallery" data-nav-section="gallery">Album</a>
+                <a href="#video" data-nav-section="video">Video</a>
+                <a href="#gift" data-nav-section="gift">Mừng cưới</a>
+                <a href="#rsvp" data-nav-section="rsvp">RSVP</a>
+                <a href="#guestbook" data-nav-section="guestbook">Lời chúc</a>
+            </nav>
+
+            <section
+                class="section invitation-letter reveal"
+                id="invitationLetter"
+                data-reveal
+                data-section="invitationLetter"
+            >
+                <div class="section-heading">
+                    <p class="eyebrow" id="letterEyebrow">Lời mời chính thức</p>
+                    <h3 id="letterHeading">Trân trọng kính mời</h3>
+                </div>
+                <div class="letter-card">
+                    <p id="letterGuestLine"></p>
+                    <p id="letterCoupleLine"></p>
+                    <p id="letterBodyLine"></p>
+                    <p class="letter-sign" id="letterSignLine"></p>
+                </div>
+            </section>
+
+            <section
+                class="section countdown-section reveal"
+                id="countdown"
+                data-reveal
+                data-section="countdown"
+            >
+                <div class="section-heading">
+                    <p class="eyebrow">Thời gian đến ngày trọng đại</p>
+                    <h3>Đếm ngược đến lễ cưới</h3>
+                </div>
+                <div class="countdown-grid">
+                    <div class="countdown-item">
+                        <span id="days">00</span>
+                        <small>Ngày</small>
+                    </div>
+                    <div class="countdown-item">
+                        <span id="hours">00</span>
+                        <small>Giờ</small>
+                    </div>
+                    <div class="countdown-item">
+                        <span id="minutes">00</span>
+                        <small>Phút</small>
+                    </div>
+                    <div class="countdown-item">
+                        <span id="seconds">00</span>
+                        <small>Giây</small>
+                    </div>
+                </div>
+            </section>
+
+            <section
+                class="section couple-section reveal"
+                id="couple"
+                data-reveal
+                data-section="couple"
+            >
+                <div class="section-heading">
+                    <p class="eyebrow">Nhà trai - Nhà gái</p>
+                    <h3>Giới thiệu cô dâu &amp; chú rể</h3>
+                </div>
+                <div class="couple-grid" id="coupleGrid"></div>
+            </section>
+
+            <section
+                class="section story-section reveal"
+                id="story"
+                data-reveal
+                data-section="story"
+            >
+                <div class="section-heading">
+                    <p class="eyebrow">Love Story</p>
+                    <h3>Câu chuyện tình yêu</h3>
+                </div>
+                <div class="timeline" id="storyTimeline"></div>
+            </section>
+
+            <section
+                class="section events-section reveal"
+                id="events"
+                data-reveal
+                data-section="events"
+            >
+                <div class="section-heading">
+                    <p class="eyebrow">Thông tin lễ cưới</p>
+                    <h3>Lịch trình ngày vui</h3>
+                </div>
+                <div class="event-grid" id="eventGrid"></div>
+            </section>
+
+            <section
+                class="section map-section reveal"
+                id="maps"
+                data-reveal
+                data-section="maps"
+            >
+                <div class="section-heading">
+                    <p class="eyebrow">Bản đồ &amp; chỉ đường</p>
+                    <h3>Tìm đường đến lễ cưới</h3>
+                </div>
+                <div class="map-grid" id="mapGrid"></div>
+            </section>
+
+            <section
+                class="section gallery-section reveal"
+                id="gallery"
+                data-reveal
+                data-section="gallery"
+            >
+                <div class="section-heading">
+                    <p class="eyebrow">Album ảnh cưới</p>
+                    <h3>Những khung hình kỷ niệm</h3>
+                </div>
+                <div class="gallery-grid" id="galleryGrid"></div>
+            </section>
+
+            <section
+                class="section video-section reveal"
+                id="video"
+                data-reveal
+                data-section="video"
+            >
+                <div class="section-heading">
+                    <p class="eyebrow">Wedding Highlight</p>
+                    <h3>Video cưới</h3>
+                </div>
+                <div class="video-card" id="videoCard"></div>
+            </section>
+
+            <section
+                class="section gift-section reveal"
+                id="gift"
+                data-reveal
+                data-section="gift"
+            >
+                <div class="section-heading">
+                    <p class="eyebrow">Mừng cưới</p>
+                    <h3>Tấm lòng của bạn là món quà quý giá</h3>
+                </div>
+                <p class="section-intro" id="giftIntro"></p>
+                <div class="gift-grid" id="giftGrid"></div>
+            </section>
+
+            <section
+                class="section rsvp-section reveal"
+                id="rsvp"
+                data-reveal
+                data-section="rsvp"
+            >
+                <div class="section-heading">
+                    <p class="eyebrow">Xác nhận tham dự</p>
+                    <h3>RSVP</h3>
+                </div>
+                <form class="rsvp-form" id="rsvpForm">
+                    <label>
+                        Họ và tên
+                        <input
+                            type="text"
+                            name="guestName"
+                            placeholder="Ví dụ: Nguyễn Văn A"
+                            required
+                        />
+                    </label>
+                    <label>
+                        Số lượng khách tham dự
+                        <select name="guestCount" required>
+                            <option value="1">1 người</option>
+                            <option value="2">2 người</option>
+                            <option value="3">3 người</option>
+                            <option value="4+">4 người trở lên</option>
+                        </select>
+                    </label>
+                    <label>
+                        Xác nhận
+                        <select name="attendance" required>
+                            <option value="yes">Rất vui được tham dự</option>
+                            <option value="no">
+                                Xin lỗi, tôi không thể tham dự
+                            </option>
+                        </select>
+                    </label>
+                    <label>
+                        Lời nhắn
+                        <textarea
+                            name="message"
+                            rows="4"
+                            placeholder="Gửi lời chúc đến cô dâu chú rể..."
+                        ></textarea>
+                    </label>
+                    <button class="primary-btn" type="submit">
+                        Gửi xác nhận
+                    </button>
+                    <p
+                        class="form-feedback"
+                        id="rsvpFeedback"
+                        aria-live="polite"
+                    ></p>
+                </form>
+            </section>
+
+            <section
+                class="section guestbook-section reveal"
+                id="guestbook"
+                data-reveal
+                data-section="guestbook"
+            >
+                <div class="section-heading">
+                    <p class="eyebrow">Sổ ký tên</p>
+                    <h3>Lời chúc từ bạn bè &amp; người thân</h3>
+                </div>
+                <div class="guestbook-list" id="guestbookList"></div>
+                <form class="guestbook-form" id="guestbookForm">
+                    <label>
+                        Tên của bạn
+                        <input
+                            type="text"
+                            name="wishName"
+                            placeholder="Ví dụ: Lê Thu Hà"
+                            required
+                        />
+                    </label>
+                    <label>
+                        Lời chúc
+                        <textarea
+                            name="wishMessage"
+                            rows="4"
+                            placeholder="Viết một lời chúc ngắn thật tình cảm..."
+                            required
+                        ></textarea>
+                    </label>
+                    <button class="secondary-btn" type="submit">
+                        Gửi lời chúc
+                    </button>
+                </form>
+            </section>
+
+            <footer
+                class="footer reveal"
+                data-reveal
+                id="footerSection"
+                data-section="footer"
+            >
+                <p class="eyebrow" id="footerEyebrow">Thank you</p>
+                <h3 id="footerHeading">Cảm ơn bạn đã ghé thăm</h3>
+                <p id="footerText"></p>
+            </footer>
+        </main>
+
+        <script src="wedding-data.js"></script>
+        <script src="script.js"></script>
+    </body>
+</html>
